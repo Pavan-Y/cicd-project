@@ -20,7 +20,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = ${env.SONAR_END_POINT}
+        SONAR_URL = "${env.SONAR_END_POINT}"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
@@ -45,13 +45,13 @@ pipeline {
     }
     stage('Update Manifest') {
         environment {
-            GIT_REPO_NAME = ${env.MANIFEST_REPO}
-            GIT_USER_NAME = ${env.GIT_USER}
+            GIT_REPO_NAME = "${env.MANIFEST_REPO}"
+            GIT_USER_NAME = "${env.GIT_USER}"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email ${env.GIT_MAIL}
+                    git config user.email "${env.GIT_MAIL}"
                     git config user.name ${GIT_USER_NAME}
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java/deployment.yml
