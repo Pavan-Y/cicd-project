@@ -27,7 +27,7 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 sudo apt-get update
 sudo apt-get install jenkins
 ```
-    By default Jenkins runs on 8080 port, You can access it @ http://localhost:8080
+By default Jenkins runs on 8080 port, You can access it @ http://localhost:8080
 
 ### Sonarqube setup
 
@@ -41,6 +41,6 @@ chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
 cd sonarqube-9.4.0.54424/bin/linux-x86-64/
 ./sonar.sh start
 ```
-    Now You can access Sonarqube at http://localhost:9000
+Now You can access Sonarqube at http://localhost:9000
 
 
